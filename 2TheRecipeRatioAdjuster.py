@@ -15,6 +15,8 @@
 # If the calculation is successful, display the adjusted recipe quantities to the user.
 
 # Use a finally block to print a message encouraging the user to enjoy their cooking, regardless of the outcome of the calculation.
+
+
 def adjust_recipe(original_servings, desired_servings, ingredients):
     try:
         original_servings = float(original_servings)
@@ -33,6 +35,8 @@ def adjust_recipe(original_servings, desired_servings, ingredients):
         return "Error: Original servings cannot be zero.", None
     except Exception as e:
         return f"Unexpected error: {e}", None
+    finally:
+        print("Try your best and I am sure it will taste great!")
 
 ingredients = [
     (1, "tablespoon unsalted butter"),
@@ -52,7 +56,7 @@ ingredients = [
 
 while True:
     original_servings = 2
-    print(f"Enter the number of servings the recipe is originally for {original_servings} ")
+    print(f"This recipe is originally meant to serve {original_servings} people.")
     desired_servings = input("Enter the number of servings you wish to make: ")
 
     result, message = adjust_recipe(original_servings, desired_servings, ingredients)
